@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노트자료실 - 교사를 위한 옵시디언 가이드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/note-library.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📘</text></svg>">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="library-header">
+        <div class="header-content">
+            <a href="index.html" class="back-link">← 메인으로</a>
+            <h1>📂 노트자료실</h1>
+            <p class="subtitle">실습용 노트 템플릿 다운로드</p>
+        </div>
+    </header>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="library-main">
+        <!-- 소개 섹션 -->
+        <section class="intro-section">
+            <div class="intro-box">
+                <h2>🎯 이 자료실의 목적</h2>
+                <p>이 자료실은 <strong>빈 템플릿</strong>으로 구성되어 있습니다.<br>
+                직접 내용을 채워가며 옵시디언 사용법을 익히세요!</p>
+            </div>
+        </section>
+
+        <!-- 폴더 구조 안내 -->
+        <section class="structure-section">
+            <h2>📂 폴더 구조</h2>
+            <div class="folder-tree">
+                <div class="folder-item root">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">practice_vault/</span>
+                </div>
+                <div class="folder-item">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">00_템플릿/</span>
+                    <span class="folder-desc">← 복사해서 쓰는 양식들</span>
+                </div>
+                <div class="folder-item">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">01_데일리노트/</span>
+                    <span class="folder-desc">← 매일의 기록</span>
+                </div>
+                <div class="folder-item">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">02_학생/</span>
+                    <span class="folder-desc">← 학생별 프로필</span>
+                </div>
+                <div class="folder-item">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">03_키워드/</span>
+                    <span class="folder-desc">← 반복되는 상황 추적</span>
+                </div>
+                <div class="folder-item">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">04_수업/</span>
+                    <span class="folder-desc">← 수업 기록</span>
+                </div>
+                <div class="folder-item">
+                    <span class="folder-icon">📁</span>
+                    <span class="folder-name">05_업무/</span>
+                    <span class="folder-desc">← 행사/업무 매뉴얼</span>
+                </div>
+                <div class="folder-item file">
+                    <span class="folder-icon">📄</span>
+                    <span class="folder-name">우리반 학생 명단.md</span>
+                    <span class="folder-desc">← 학생 관리의 관제탑</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 다운로드 섹션 -->
+        <section class="download-section">
+            <h2>📥 노트 템플릿 다운로드</h2>
+            
+            <!-- 핵심 템플릿 -->
+            <h3 class="section-subtitle">📁 00_템플릿 (복사해서 쓰는 양식)</h3>
+            <div class="download-grid">
+                <!-- 데일리 노트 템플릿 -->
+                <div class="download-card featured">
+                    <div class="card-icon">📅</div>
+                    <h3>데일리노트 템플릿</h3>
+                    <p>ORID 회고법이 포함된 일일 기록 양식</p>
+                    <ul class="features">
+                        <li>✅ 할 일 체크박스</li>
+                        <li>✅ 교시별 수업 기록</li>
+                        <li>✅ ORID 회고 (사실/감정/해석/계획)</li>
+                        <li>✅ 대나무 숲 (속마음)</li>
+                    </ul>
+                    <button class="download-btn" data-file="daily-template">
+                        <span>📄 다운로드</span>
+                    </button>
+                </div>
+
+                <!-- 학생카드 템플릿 -->
+                <div class="download-card">
+                    <div class="card-icon">🎓</div>
+                    <h3>학생카드 템플릿</h3>
+                    <p>학생별 프로필 및 생기부 초안</p>
+                    <ul class="features">
+                        <li>✅ 기본 정보 & 정량 데이터</li>
+                        <li>✅ 상담 메모</li>
+                        <li>✅ 생기부 초안 섹션</li>
+                    </ul>
+                    <button class="download-btn" data-file="student-card-template">
+                        <span>📄 다운로드</span>
+                    </button>
+                </div>
+
+                <!-- 수업기록 템플릿 -->
+                <div class="download-card">
+                    <div class="card-icon">📚</div>
+                    <h3>수업기록 템플릿</h3>
+                    <p>수업 이력 및 노하우 축적</p>
+                    <ul class="features">
+                        <li>✅ 연도별 수업 이력</li>
+                        <li>✅ 성공 공식 & 피해야 할 것</li>
+                        <li>✅ 실전 꿀팁</li>
+                    </ul>
+                    <button class="download-btn" data-file="class-record-template">
+                        <span>📄 다운로드</span>
+                    </button>
+                </div>
+
+                <!-- 상담일지 템플릿 -->
+                <div class="download-card">
+                    <div class="card-icon">💬</div>
+                    <h3>상담일지 템플릿</h3>
+                    <p>학생 상담 기록 및 후속 조치</p>
+                    <ul class="features">
+                        <li>✅ 상담 유형 & 요청자</li>
+                        <li>✅ 학생의 말 & 교사 조언</li>
+                        <li>✅ 후속 조치 체크리스트</li>
+                    </ul>
+                    <button class="download-btn" data-file="counseling-template">
+                        <span>📄 다운로드</span>
+                    </button>
+                </div>
+
+                <!-- 행사매뉴얼 템플릿 -->
+                <div class="download-card">
+                    <div class="card-icon">🎪</div>
+                    <h3>행사매뉴얼 템플릿</h3>
+                    <p>연도별 행사 기록 및 체크리스트</p>
+                    <ul class="features">
+                        <li>✅ 연도별 기록</li>
+                        <li>✅ 내년의 나에게 메모</li>
+                        <li>✅ D-30/D-7/D-1 체크리스트</li>
+                    </ul>
+                    <button class="download-btn" data-file="event-manual-template">
+                        <span>📄 다운로드</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 실습용 예시 파일 -->
+            <h3 class="section-subtitle">📁 실습용 예시 파일</h3>
+            
+            <!-- 핵심 파일 -->
+            <div class="file-category">
+                <h4 class="category-title">📋 핵심 파일</h4>
+                <div class="file-list">
+                    <div class="file-item featured" data-file="student-list">
+                        <span class="file-icon">👥</span>
+                        <span class="file-name">우리반 학생 명단.md</span>
+                        <span class="file-desc">30명 학생 링크 MOC</span>
+                        <button class="file-download-btn">다운로드</button>
+                    </div>
+                    <div class="file-item" data-file="readme">
+                        <span class="file-icon">📖</span>
+                        <span class="file-name">README.md</span>
+                        <span class="file-desc">볼트 사용 가이드</span>
+                        <button class="file-download-btn">다운로드</button>
+                    </div>
+                    <div class="file-item" data-file="beginner-practice">
+                        <span class="file-icon">🌱</span>
+                        <span class="file-name">완전초보자용_실습노트.md</span>
+                        <span class="file-desc">13장 실습 가이드</span>
+                        <button class="file-download-btn">다운로드</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 01_데일리노트 -->
+            <div class="file-category">
+                <h4 class="category-title">📅 01_데일리노트 (6개)</h4>
+                <div class="file-list compact">
+                    <div class="file-item" data-file="daily-0302"><span class="file-icon">📝</span><span class="file-name">2026-03-02.md</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="daily-0303"><span class="file-icon">📝</span><span class="file-name">2026-03-03.md</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="daily-0304"><span class="file-icon">📝</span><span class="file-name">2026-03-04.md</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="daily-0305"><span class="file-icon">📝</span><span class="file-name">2026-03-05.md</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="daily-0306"><span class="file-icon">📝</span><span class="file-name">2026-03-06.md</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="daily-0307"><span class="file-icon">📝</span><span class="file-name">2026-03-07.md</span><button class="file-download-btn">다운로드</button></div>
+                </div>
+                <button class="download-all-btn" data-category="daily">📦 데일리노트 전체 다운로드</button>
+            </div>
+
+            <!-- 02_학생 -->
+            <div class="file-category">
+                <h4 class="category-title">🎓 02_학생 (30명)</h4>
+                <div class="file-list compact student-grid">
+                    <div class="file-item" data-file="student-강도현"><span class="file-name">강도현.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-고우진"><span class="file-name">고우진.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-김민재"><span class="file-name">김민재.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-김민준"><span class="file-name">김민준.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-김서진"><span class="file-name">김서진.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-김준호"><span class="file-name">김준호.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-김지호"><span class="file-name">김지호.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-김현수"><span class="file-name">김현수.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-류승민"><span class="file-name">류승민.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-문건우"><span class="file-name">문건우.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-박서준"><span class="file-name">박서준.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-박지훈"><span class="file-name">박지훈.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-배준영"><span class="file-name">배준영.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-서예준"><span class="file-name">서예준.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-신시우"><span class="file-name">신시우.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-안지후"><span class="file-name">안지후.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-양도윤"><span class="file-name">양도윤.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-윤서윤"><span class="file-name">윤서윤.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-이서진"><span class="file-name">이서진.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-이준우"><span class="file-name">이준우.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-장하은"><span class="file-name">장하은.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-정다은"><span class="file-name">정다은.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-정수아"><span class="file-name">정수아.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-조민서"><span class="file-name">조민서.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-조현우"><span class="file-name">조현우.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-최예진"><span class="file-name">최예진.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-최지우"><span class="file-name">최지우.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-한지원"><span class="file-name">한지원.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-홍유진"><span class="file-name">홍유진.md</span><button class="file-download-btn">↓</button></div>
+                    <div class="file-item" data-file="student-황지아"><span class="file-name">황지아.md</span><button class="file-download-btn">↓</button></div>
+                </div>
+                <button class="download-all-btn" data-category="students">📦 학생 노트 전체 다운로드</button>
+            </div>
+
+            <!-- 03_키워드 -->
+            <div class="file-category">
+                <h4 class="category-title">🏷️ 03_키워드 (6개)</h4>
+                <div class="file-list">
+                    <div class="file-item" data-file="keyword-monday"><span class="file-icon">🏷️</span><span class="file-name">월요병.md</span><span class="file-desc">월요일 축 처진 현상</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="keyword-bathroom"><span class="file-icon">🏷️</span><span class="file-name">화장실빌런.md</span><span class="file-desc">습관적 화장실 패턴</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="keyword-friends"><span class="file-icon">🏷️</span><span class="file-name">교우관계.md</span><span class="file-desc">친구 관계 이슈</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="keyword-home"><span class="file-icon">🏷️</span><span class="file-name">가정환경.md</span><span class="file-desc">가정 관련 이슈</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="keyword-scaffold"><span class="file-icon">🏷️</span><span class="file-name">비계설정.md</span><span class="file-desc">학습 지원 전략</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="keyword-group"><span class="file-icon">🏷️</span><span class="file-name">모둠활동.md</span><span class="file-desc">모둠 수업 관련</span><button class="file-download-btn">다운로드</button></div>
+                </div>
+                <button class="download-all-btn" data-category="keywords">📦 키워드 전체 다운로드</button>
+            </div>
+
+            <!-- 04_수업 -->
+            <div class="file-category">
+                <h4 class="category-title">📚 04_수업</h4>
+                <div class="file-list">
+                    <div class="file-item" data-file="class-example"><span class="file-icon">📚</span><span class="file-name">수업노트_예시.md</span><span class="file-desc">수업 기록 예시</span><button class="file-download-btn">다운로드</button></div>
+                </div>
+            </div>
+
+            <!-- 05_업무 -->
+            <div class="file-category">
+                <h4 class="category-title">📞 05_업무 (2개)</h4>
+                <div class="file-list">
+                    <div class="file-item" data-file="work-parent"><span class="file-icon">📞</span><span class="file-name">학부모상담.md</span><span class="file-desc">상담 기록 및 팁</span><button class="file-download-btn">다운로드</button></div>
+                    <div class="file-item" data-file="work-sports"><span class="file-icon">🏃</span><span class="file-name">체육대회.md</span><span class="file-desc">행사 매뉴얼 예시</span><button class="file-download-btn">다운로드</button></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 실습 가이드 섹션 -->
+        <section class="guide-section">
+            <h2>🚀 시작하기</h2>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">Step 1</div>
+                    <div class="step-content">
+                        <h3>데일리 노트 쓰기</h3>
+                        <ol>
+                            <li><code>01_데일리노트</code> 폴더의 아무 파일이나 열기</li>
+                            <li>오늘 있었던 일 1줄 적기</li>
+                            <li>학생 이름에 <code>[[ ]]</code> 씌우기</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">Step 2</div>
+                    <div class="step-content">
+                        <h3>학생 이름 클릭해보기</h3>
+                        <ol>
+                            <li><code>[[김민준]]</code> 같은 파란 글씨 클릭</li>
+                            <li>학생 노트로 이동 확인</li>
+                            <li>오른쪽 백링크 패널 확인</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">Step 3</div>
+                    <div class="step-content">
+                        <h3>패턴 발견하기</h3>
+                        <ol>
+                            <li>같은 학생을 3일 연속 기록</li>
+                            <li>학생 노트의 백링크에서 기록 모아보기</li>
+                            <li>반복되는 패턴 찾기</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 실습 미션 섹션 -->
+        <section class="mission-section">
+            <h2>✍ 실습 미션</h2>
+            
+            <div class="mission-grid">
+                <div class="mission-card week1">
+                    <h3>🌱 1주차: 점 찍기</h3>
+                    <ul class="mission-list">
+                        <li><input type="checkbox"> 데일리 노트 5개 작성하기</li>
+                        <li><input type="checkbox"> 학생 이름에 링크 걸기 10개</li>
+                        <li><input type="checkbox"> 체크박스로 할 일 관리하기</li>
+                    </ul>
+                </div>
+
+                <div class="mission-card week2">
+                    <h3>🌿 2주차: 선 잇기</h3>
+                    <ul class="mission-list">
+                        <li><input type="checkbox"> 같은 학생 3번 이상 언급하기</li>
+                        <li><input type="checkbox"> 백링크에서 패턴 발견하기</li>
+                        <li><input type="checkbox"> 키워드 링크 사용하기</li>
+                    </ul>
+                </div>
+
+                <div class="mission-card week3">
+                    <h3>🌳 3주차: 면 채우기</h3>
+                    <ul class="mission-list">
+                        <li><input type="checkbox"> 학생 5명의 프로필 채우기</li>
+                        <li><input type="checkbox"> 수업 노트 1개 작성하기</li>
+                        <li><input type="checkbox"> 그래프 뷰 열어보기 (Ctrl+G)</li>
+                    </ul>
+                </div>
+
+                <div class="mission-card week4">
+                    <h3>🌲 4주차: 입체 만들기</h3>
+                    <ul class="mission-list">
+                        <li><input type="checkbox"> 검색으로 학생 기록 찾기</li>
+                        <li><input type="checkbox"> 태그 사용하기 (#칭찬, #상담필요)</li>
+                        <li><input type="checkbox"> 생기부 초안 작성해보기</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 단축키 섹션 -->
+        <section class="shortcut-section">
+            <h2>🔑 핵심 단축키</h2>
+            <div class="shortcut-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>단축키</th>
+                            <th>기능</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>Ctrl + O</code></td>
+                            <td>파일 빠르게 열기</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl + E</code></td>
+                            <td>편집/읽기 모드 전환</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl + G</code></td>
+                            <td>그래프 뷰 열기</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl + Shift + F</code></td>
+                            <td>전체 검색</td>
+                        </tr>
+                        <tr>
+                            <td><code>Ctrl + Click</code></td>
+                            <td>새 창으로 열기</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 팁 섹션 -->
+        <section class="tips-section">
+            <h2>💡 팁</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <span class="tip-number">1</span>
+                    <p><strong>완벽하게 쓰려 하지 마세요</strong> - 엉망으로라도 일단 쓰세요</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-number">2</span>
+                    <p><strong>링크를 많이 거세요</strong> - 나중에 백링크가 빛을 발합니다</p>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-number">3</span>
+                    <p><strong>매일 조금씩</strong> - 하루 3분이면 충분합니다</p>
+                </div>
+            </div>
+            <blockquote class="quote">
+                "오늘 적어둔 한 줄이, 12월의 야근을 한 시간 줄여줍니다."
+            </blockquote>
+        </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="library-footer">
+        <p>📘 기억을 잇다, 교실을 읽다 - 교사를 위한 옵시디언 가이드</p>
+        <p>© 2025 Junki. All rights reserved.</p>
+    </footer>
+
+    <script src="js/note-library.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+{
+  "main": {
+    "id": "90395d9897f9be1e",
+    "type": "split",
+    "children": [
+      {
+        "id": "8a54ffcaa4e651e5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4657f0c5a7111201",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01 Part.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01 Part"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cf016d2f4d063b5b",
+    "type": "split",
+    "children": [
+      {
+        "id": "7c1b739c5413d509",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "688904570639f9b2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "c48b1c1a195928fe",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "bc7523e0997bcb71",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "36e4b3e8ae10ee7e",
+    "type": "split",
+    "children": [
+      {
+        "id": "68ff8bc1ade95b4c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "914402be1485c778",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "01 Part.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "01 Part 의 백링크"
+            }
+          },
+          {
+            "id": "23b9e1df2928a43c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "01 Part.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "01 Part 의 나가는 링크"
+            }
+          },
+          {
+            "id": "e7390718cb360957",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "d76454aba7129bb3",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "f1776d6c6f522d7c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "01 Part.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "01 Part 의 개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "4657f0c5a7111201",
+  "lastOpenFiles": [
+    "013-note-first.gif",
+    "01 Part.md",
+    "012-ob-vaultcreate.gif",
+    "02  Part.md",
+    "011-ob-onedrive.gif",
+    "03 Part.md",
+    "010-ob-tags.gif",
+    "++/허브 챕터들 (길고양이버전)/종합프로젝트 요청 프롬프트와 내용/소스파일들1/김민준.md",
+    "++/허브 챕터들 (길고양이버전)/종합프로젝트 요청 프롬프트와 내용/소스파일들1",
+    "++/허브 챕터들 (길고양이버전)/종합프로젝트 요청 프롬프트와 내용",
+    "++/허브 챕터들 (길고양이버전)",
+    "++",
+    "는 실과 바늘. 5가지 도구로 문서라는 옷을 짜는 것입니다..md",
+    "004-ob-note-name.gif"
+  ]
+}

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기억을 잇다, 교실을 읽다 - 교사를 위한 옵시디언 가이드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📘</text></svg>">
+</head>
+<body>
+    <!-- 사이드바 -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">📘</span>
+                <span class="logo-text">기억을 잇다</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">×</button>
+        </div>
+        
+        <div class="progress-section">
+            <div class="progress-label">
+                <span>학습 진도</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <!-- JavaScript로 동적 생성 -->
+        </nav>
+        
+        <div class="sidebar-footer">
+            <button class="feedback-list-btn" id="viewFeedbackList">
+                <span>📋</span>
+                <span>피드백 목록</span>
+                <span class="feedback-count" id="feedbackCount">0</span>
+            </button>
+            <button class="theme-toggle" id="themeToggle">
+                <span class="theme-icon">🌙</span>
+                <span>다크모드</span>
+            </button>
+        </div>
+    </aside>
+    
+    <!-- 메인 콘텐츠 -->
+    <main class="main-content">
+        <header class="top-bar">
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="search-box">
+                <input type="text" placeholder="검색어를 입력하세요..." id="searchInput">
+                <button class="search-btn" id="searchBtn">🔍</button>
+            </div>
+        </header>
+        
+        <!-- 홈 화면 -->
+        <section class="home-section" id="homeSection">
+            <div class="hero">
+                <img src="cover.jpg" alt="책 표지" class="hero-cover">
+                <div class="hero-content">
+                    <h1>기억을 잇다, 교실을 읽다</h1>
+                    <p class="hero-subtitle">교사를 위한 옵시디언 완전 가이드 ver 2.0</p>
+                    <p class="hero-author">저자: Junki</p>
+                    <button class="btn-primary" id="startLearning">학습 시작하기</button>
+                    <a href="install-guide.html" class="btn-secondary" style="margin-left: 1rem; display: inline-block; padding: 0.75rem 1.5rem; background: #f1f5f9; color: #1e293b; text-decoration: none; border-radius: 8px; font-weight: 500;">📥 설치가이드(기본문법)</a>
+                    <a href="note-library.html" class="btn-secondary" style="margin-left: 1rem; display: inline-block; padding: 0.75rem 1.5rem; background: #d1fae5; color: #065f46; text-decoration: none; border-radius: 8px; font-weight: 500;">📂 노트자료실</a>
+                </div>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <span class="feature-icon">📝</span>
+                    <h3>16개 챕터</h3>
+                    <p>체계적인 커리큘럼으로 옵시디언 마스터</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⏱️</span>
+                    <h3>3분 기록법</h3>
+                    <p>바쁜 교사를 위한 효율적인 기록 시스템</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔗</span>
+                    <h3>꼬꼬무 연결</h3>
+                    <p>꼬리에 꼬리를 무는 지식 네트워크</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>진도 관리</h3>
+                    <p>학습 진행률 자동 저장</p>
+                </div>
+            </div>
+            
+            <div class="chapter-grid" id="chapterGrid">
+                <!-- JavaScript로 동적 생성 -->
+            </div>
+        </section>
+        
+        <!-- 챕터 콘텐츠 -->
+        <section class="chapter-section" id="chapterSection" style="display: none;">
+            <div class="chapter-header">
+                <button class="btn-back" id="backToHome">← 목차로</button>
+                <div class="chapter-nav">
+                    <button class="btn-nav" id="prevChapter" disabled>◀ 이전</button>
+                    <button class="btn-nav" id="nextChapter">다음 ▶</button>
+                </div>
+            </div>
+            
+            <article class="chapter-content" id="chapterContent">
+                <!-- 챕터 내용이 여기에 로드됨 -->
+            </article>
+            
+            <div class="chapter-footer">
+                <label class="complete-check">
+                    <input type="checkbox" id="completeCheckbox">
+                    <span class="checkmark"></span>
+                    <span>이 챕터 학습 완료</span>
+                </label>
+                <div class="chapter-nav">
+                    <button class="btn-nav" id="prevChapter2" disabled>◀ 이전 챕터</button>
+                    <button class="btn-nav btn-primary" id="nextChapter2">다음 챕터 ▶</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 검색 결과 -->
+        <section class="search-section" id="searchSection" style="display: none;">
+            <h2>검색 결과</h2>
+            <div class="search-results" id="searchResults">
+                <!-- 검색 결과가 여기에 표시됨 -->
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- 피드백 플로팅 버튼 -->
+    <button class="feedback-fab" id="feedbackFab" title="피드백 남기기">
+        💬
+    </button>
+    
+    <!-- 피드백 모달 -->
+    <div class="modal-overlay" id="feedbackModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📝 베타 리더 피드백</h2>
+                <button class="modal-close" id="modalClose">×</button>
+            </div>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="readerName">이름 (닉네임)</label>
+                    <input type="text" id="readerName" placeholder="예: 김교사" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>현재 챕터</label>
+                    <input type="text" id="currentChapterDisplay" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackType">피드백 유형</label>
+                    <select id="feedbackType" required>
+                        <option value="">선택해주세요</option>
+                        <option value="typo">🔤 오탈자/맞춤법</option>
+                        <option value="unclear">❓ 이해하기 어려운 부분</option>
+                        <option value="suggestion">💡 개선 제안</option>
+                        <option value="question">🙋 질문</option>
+                        <option value="praise">👍 좋았던 점</option>
+                        <option value="other">📌 기타</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="selectedText">관련 텍스트 (선택사항)</label>
+                    <textarea id="selectedText" rows="2" placeholder="문제가 되는 텍스트를 복사해서 붙여넣으세요"></textarea>
+                    <small>💡 팁: 본문에서 텍스트를 드래그하면 자동으로 입력됩니다</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="feedbackContent">피드백 내용 <span class="required">*</span></label>
+                    <textarea id="feedbackContent" rows="4" placeholder="자세한 피드백을 남겨주세요" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>중요도</label>
+                    <div class="priority-buttons">
+                        <label class="priority-btn">
+                            <input type="radio" name="priority" value="low">
+                            <span>🟢 낮음</span>
+                        </label>
+                        <label class="priority-btn">
+                            <input type="radio" name="priority" value="medium" checked>
+                            <span>🟡 보통</span>
+                        </label>
+                        <label class="priority-btn">
+                            <input type="radio" name="priority" value="high">
+                            <span>🔴 높음</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelFeedback">취소</button>
+                    <button type="submit" class="btn-primary">피드백 제출</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- 피드백 목록 모달 -->
+    <div class="modal-overlay" id="feedbackListModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2>📋 피드백 목록</h2>
+                <button class="modal-close" id="listModalClose">×</button>
+            </div>
+            <div class="feedback-list-controls">
+                <select id="filterChapter">
+                    <option value="all">모든 챕터</option>
+                </select>
+                <select id="filterType">
+                    <option value="all">모든 유형</option>
+                    <option value="typo">🔤 오탈자</option>
+                    <option value="unclear">❓ 이해 어려움</option>
+                    <option value="suggestion">💡 제안</option>
+                    <option value="question">🙋 질문</option>
+                    <option value="praise">👍 좋았던 점</option>
+                    <option value="other">📌 기타</option>
+                </select>
+                <button class="btn-export" id="exportFeedback">📥 CSV</button>
+                <button class="btn-export btn-json" id="exportJSON">💾 JSON 저장</button>
+                <label class="btn-export btn-import">
+                    📂 불러오기
+                    <input type="file" id="importJSON" accept=".json" style="display:none">
+                </label>
+            </div>
+            <div class="feedback-list" id="feedbackList">
+                <!-- 피드백 목록이 여기에 표시됨 -->
+            </div>
+            <div class="feedback-stats" id="feedbackStats">
+                <!-- 통계가 여기에 표시됨 -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- 토스트 알림 -->
+    <div class="toast" id="toast"></div>
+    
+    <script src="js/chapters.js"></script>
+    <script src="js/practice.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
