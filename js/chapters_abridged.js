@@ -1,6 +1,6 @@
 // 자동 생성된 챕터 데이터 (수정본_축약 마크다운에서 변환)
 // 생성일: 2025-12-14 23:20:24
-const CHAPTERS_ABRIDGED_DATA = [
+const CHAPTERS_DATA_ABRIDGED = [
     {
         id: 0,
         title: `프롤로그`,
