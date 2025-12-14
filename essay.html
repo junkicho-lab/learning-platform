@@ -283,6 +283,18 @@
             </div>
         </div>
         
+        <div class="tts-controls" id="ttsControls" style="display: none; margin-bottom: 1rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px;">
+            <button class="btn-tts" id="ttsPlay" title="읽어주기" style="padding: 8px 16px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer;">🔊 읽어주기</button>
+            <button class="btn-tts" id="ttsPause" title="일시정지" style="display:none; padding: 8px 16px; background: #f59e0b; color: white; border: none; border-radius: 6px; cursor: pointer;">⏸️ 일시정지</button>
+            <button class="btn-tts" id="ttsStop" title="정지" style="display:none; padding: 8px 16px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer;">⏹️ 정지</button>
+            <select id="ttsSpeed" style="padding: 8px; border-radius: 6px; border: 1px solid var(--border-color); margin-left: 8px;">
+                <option value="0.8">0.8x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.2">1.2x</option>
+                <option value="1.5">1.5x</option>
+            </select>
+        </div>
+        
         <div id="essayContent" class="essay-content">
             <div style="text-align: center; padding: 3rem; color: var(--text-light);">
                 <p style="font-size: 3rem; margin-bottom: 1rem;">👆</p>
@@ -293,6 +305,128 @@
     
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
+        // TTS 컨트롤러 (에세이 전용)
+        class EssayTTSController {
+            constructor() {
+                this.synth = window.speechSynthesis;
+                this.utterance = null;
+                this.isPlaying = false;
+                this.isPaused = false;
+                this.voices = [];
+                
+                this.playBtn = document.getElementById('ttsPlay');
+                this.pauseBtn = document.getElementById('ttsPause');
+                this.stopBtn = document.getElementById('ttsStop');
+                this.speedSelect = document.getElementById('ttsSpeed');
+                this.controlsDiv = document.getElementById('ttsControls');
+                
+                this.init();
+            }
+            
+            init() {
+                this.loadVoices();
+                this.synth.onvoiceschanged = () => this.loadVoices();
+                
+                if (this.playBtn) this.playBtn.addEventListener('click', () => this.play());
+                if (this.pauseBtn) this.pauseBtn.addEventListener('click', () => this.pause());
+                if (this.stopBtn) this.stopBtn.addEventListener('click', () => this.stop());
+            }
+            
+            loadVoices() {
+                this.voices = this.synth.getVoices();
+                this.koreanVoice = this.voices.find(v => v.lang.includes('ko') || v.lang.includes('KR'));
+            }
+            
+            show() {
+                if (this.controlsDiv) this.controlsDiv.style.display = 'block';
+            }
+            
+            getTextFromContent() {
+                const content = document.getElementById('essayContent');
+                if (!content) return '';
+                const clone = content.cloneNode(true);
+                clone.querySelectorAll('pre, code').forEach(el => el.textContent = '(코드 생략)');
+                clone.querySelectorAll('table').forEach(el => el.textContent = '(표 내용 생략)');
+                return (clone.textContent || clone.innerText).replace(/\s+/g, ' ').replace(/\n+/g, '. ').trim();
+            }
+            
+            play() {
+                if (this.isPaused && this.utterance) {
+                    this.synth.resume();
+                    this.isPaused = false;
+                    this.updateButtons('playing');
+                    return;
+                }
+                this.stop();
+                const text = this.getTextFromContent();
+                if (!text) { alert('읽을 내용이 없습니다.'); return; }
+                this.speakChunks(this.splitText(text, 5000), 0);
+            }
+            
+            splitText(text, max) {
+                const chunks = [];
+                let start = 0;
+                while (start < text.length) {
+                    let end = Math.min(start + max, text.length);
+                    if (end < text.length) {
+                        const bp = Math.max(text.lastIndexOf('.', end), text.lastIndexOf('?', end), text.lastIndexOf('!', end));
+                        if (bp > start) end = bp + 1;
+                    }
+                    chunks.push(text.substring(start, end).trim());
+                    start = end;
+                }
+                return chunks;
+            }
+            
+            speakChunks(chunks, i) {
+                if (i >= chunks.length) { this.stop(); return; }
+                this.utterance = new SpeechSynthesisUtterance(chunks[i]);
+                this.utterance.lang = 'ko-KR';
+                this.utterance.rate = parseFloat(this.speedSelect?.value || 1);
+                if (this.koreanVoice) this.utterance.voice = this.koreanVoice;
+                this.utterance.onstart = () => { this.isPlaying = true; this.updateButtons('playing'); };
+                this.utterance.onend = () => this.speakChunks(chunks, i + 1);
+                this.utterance.onerror = () => this.stop();
+                this.synth.speak(this.utterance);
+            }
+            
+            pause() {
+                if (this.isPlaying && !this.isPaused) {
+                    this.synth.pause();
+                    this.isPaused = true;
+                    this.updateButtons('paused');
+                }
+            }
+            
+            stop() {
+                this.synth.cancel();
+                this.isPlaying = false;
+                this.isPaused = false;
+                this.updateButtons('stopped');
+            }
+            
+            updateButtons(state) {
+                if (!this.playBtn) return;
+                if (state === 'playing') {
+                    this.playBtn.style.display = 'none';
+                    this.pauseBtn.style.display = 'inline-block';
+                    this.stopBtn.style.display = 'inline-block';
+                } else if (state === 'paused') {
+                    this.playBtn.style.display = 'inline-block';
+                    this.playBtn.textContent = '▶️ 계속';
+                    this.pauseBtn.style.display = 'none';
+                    this.stopBtn.style.display = 'inline-block';
+                } else {
+                    this.playBtn.style.display = 'inline-block';
+                    this.playBtn.textContent = '🔊 읽어주기';
+                    this.pauseBtn.style.display = 'none';
+                    this.stopBtn.style.display = 'none';
+                }
+            }
+        }
+        
+        const essayTTS = new EssayTTSController();
+        
         const essayFiles = {
             1: '에세이/1편_패턴을_읽는_교사.md',
             2: '에세이/2편_신호를_읽는_교사.md',
@@ -323,6 +457,10 @@
                     // 마크다운을 HTML로 변환
                     const html = marked.parse(markdown);
                     contentDiv.innerHTML = html;
+                    
+                    // TTS 컨트롤 표시
+                    essayTTS.show();
+                    essayTTS.stop();
                     
                     // 스크롤 이동
                     contentDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
