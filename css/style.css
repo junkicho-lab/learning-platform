@@ -60,6 +60,7 @@ body {
     flex-direction: column;
     z-index: 1000;
     transition: var(--transition);
+    overflow: hidden;
 }
 
 .sidebar-header {
@@ -127,10 +128,8 @@ body {
 .nav-menu {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding: 10px 0;
-    position: sticky;
-    top: 0;
-    max-height: calc(100vh - 250px);
 }
 
 .nav-item {
