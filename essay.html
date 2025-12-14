@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기록이 만든 기적 - 에세이 시리즈</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📘</text></svg>">
+    <style>
+        .essay-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .essay-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            color: white;
+        }
+        .essay-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .essay-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        .essay-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .essay-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .essay-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+        .essay-card.active {
+            border-color: var(--primary-color);
+            background: var(--bg-secondary);
+        }
+        .essay-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .essay-card-icon {
+            font-size: 2rem;
+        }
+        .essay-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .essay-card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .essay-card-chapters {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .essay-card-chapters li {
+            padding: 0.4rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border-bottom: 1px dashed var(--border-color);
+        }
+        .essay-card-chapters li:last-child {
+            border-bottom: none;
+        }
+        .essay-content {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            line-height: 1.9;
+        }
+        .essay-content h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        .essay-content h1:first-child {
+            margin-top: 0;
+        }
+        .essay-content h2 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+        }
+        .essay-content h3 {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+        .essay-content blockquote {
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+        .essay-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .essay-content th, .essay-content td {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+        .essay-content th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+        }
+        .essay-content code {
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+        .essay-content pre {
+            background: #2D2D2D;
+            color: #FFFFFF;
+            padding: 1.25rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+        }
+        .essay-content pre code {
+            background: transparent;
+            color: #FFFFFF;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+        .toc-nav {
+            position: sticky;
+            top: 1rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .toc-nav h4 {
+            margin: 0 0 0.75rem 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .toc-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .toc-nav li {
+            padding: 0.3rem 0;
+        }
+        .toc-nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .toc-nav a:hover {
+            color: var(--primary-color);
+        }
+        @media (max-width: 768px) {
+            .essay-container {
+                padding: 1rem;
+            }
+            .essay-header h1 {
+                font-size: 1.8rem;
+            }
+            .essay-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="essay-container">
+        <a href="index.html" class="back-link">← 메인으로 돌아가기</a>
+        
+        <header class="essay-header">
+            <h1>📖 기록이 만든 기적</h1>
+            <p>교사의 1년, 옵시디언이 바꾼 교실 이야기</p>
+        </header>
+        
+        
+        <div class="essay-grid">
+            <div class="essay-card" data-part="1">
+                <div class="essay-card-header">
+                    <span class="essay-card-icon">📊</span>
+                    <div>
+                        <div class="essay-card-title">제1부. 패턴을 읽는 교사</div>
+                        <div class="essay-card-subtitle">기록의 시작과 학생 패턴 발견</div>
+                    </div>
+                </div>
+                <ul class="essay-card-chapters">
+                    <li>프롤로그: 왜 우리는 매일 까먹을까?</li>
+                    <li>1장. 화장실빌런의 비밀</li>
+                    <li>2장. 공격적인 아이의 진짜 이유</li>
+                    <li>3장. 조용한 아이를 발견하기까지</li>
+                    <li>4~5장. 기록이 나를 지켜준 날</li>
+                </ul>
+            </div>
+            
+            <div class="essay-card" data-part="2">
+                <div class="essay-card-header">
+                    <span class="essay-card-icon">🔍</span>
+                    <div>
+                        <div class="essay-card-title">제2부. 신호를 읽는 교사</div>
+                        <div class="essay-card-subtitle">환경 패턴과 체계 구축</div>
+                    </div>
+                </div>
+                <ul class="essay-card-chapters">
+                    <li>6장. 월요병의 진짜 이름</li>
+                    <li>7장. 급식을 남기는 이유</li>
+                    <li>8장. 5교시의 폭풍</li>
+                    <li>9장. 비 오는 날의 지각생</li>
+                </ul>
+            </div>
+            
+            <div class="essay-card" data-part="3">
+                <div class="essay-card-header">
+                    <span class="essay-card-icon">🛡️</span>
+                    <div>
+                        <div class="essay-card-title">제3부. 기록으로 지키는 교사</div>
+                        <div class="essay-card-subtitle">그래프 뷰와 민원 대응</div>
+                    </div>
+                </div>
+                <ul class="essay-card-chapters">
+                    <li>10장. 학교폭력 조사, 기록이 증언하다</li>
+                    <li>11장. "체벌했다면서요?"</li>
+                </ul>
+            </div>
+            
+            <div class="essay-card" data-part="4">
+                <div class="essay-card-header">
+                    <span class="essay-card-icon">📈</span>
+                    <div>
+                        <div class="essay-card-title">제4부. 경력을 쌓는 교사</div>
+                        <div class="essay-card-subtitle">생기부 작성과 노하우 공유</div>
+                    </div>
+                </div>
+                <ul class="essay-card-chapters">
+                    <li>12장. 피타고라스 정리, 3년간의 진화</li>
+                    <li>13장. 체육대회의 아이스크림</li>
+                    <li>에필로그: 점에서 우주로</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="essayContent" class="essay-content">
+            <div style="text-align: center; padding: 3rem; color: var(--text-light);">
+                <p style="font-size: 3rem; margin-bottom: 1rem;">👆</p>
+                <p>위에서 읽고 싶은 부를 선택하세요</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        const essayFiles = {
+            1: '에세이/1편_패턴을_읽는_교사.md',
+            2: '에세이/2편_신호를_읽는_교사.md',
+            3: '에세이/3편_기록으로_지키는_교사.md',
+            4: '에세이/4편_경력을_쌓는_교사.md'
+        };
+        
+        const cards = document.querySelectorAll('.essay-card');
+        const contentDiv = document.getElementById('essayContent');
+        
+        cards.forEach(card => {
+            card.addEventListener('click', async () => {
+                const part = card.dataset.part;
+                
+                // 활성 카드 표시
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                
+                // 로딩 표시
+                contentDiv.innerHTML = '<div style="text-align: center; padding: 3rem;"><p>📖 불러오는 중...</p></div>';
+                
+                try {
+                    const response = await fetch(essayFiles[part]);
+                    if (!response.ok) throw new Error('파일을 찾을 수 없습니다.');
+                    
+                    let markdown = await response.text();
+                    
+                    // 마크다운을 HTML로 변환
+                    const html = marked.parse(markdown);
+                    contentDiv.innerHTML = html;
+                    
+                    // 스크롤 이동
+                    contentDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                } catch (error) {
+                    contentDiv.innerHTML = `<div style="text-align: center; padding: 3rem; color: #dc2626;">
+                        <p>⚠️ ${error.message}</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">잠시 후 다시 시도해주세요.</p>
+                    </div>`;
+                }
+            });
+        });
+        
+        // 다크모드 지원
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+</body>
+</html>

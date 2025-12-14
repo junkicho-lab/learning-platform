@@ -5,6 +5,8 @@
 class LearningPlatform {
     constructor() {
         this.currentChapter = -1;
+        this.currentVersion = this.loadVersion(); // 'full' or 'abridged'
+        this.chaptersData = this.getChaptersData();
         this.completedChapters = this.loadProgress();
         this.searchIndex = [];
         this.feedbacks = this.loadFeedbacks();
@@ -12,6 +14,40 @@ class LearningPlatform {
         this.currentLesson = null;
         
         this.init();
+    }
+    
+    // ===== Version Management =====
+    loadVersion() {
+        return localStorage.getItem('learningVersion') || 'full';
+    }
+    
+    saveVersion(version) {
+        localStorage.setItem('learningVersion', version);
+        this.currentVersion = version;
+    }
+    
+    getChaptersData() {
+        return this.currentVersion === 'abridged' ? CHAPTERS_DATA_ABRIDGED : CHAPTERS_DATA;
+    }
+    
+    switchVersion(version) {
+        this.saveVersion(version);
+        this.chaptersData = this.getChaptersData();
+        this.renderNavMenu();
+        this.renderChapterGrid();
+        this.updateProgress();
+        this.buildSearchIndex();
+        this.updateVersionIndicator();
+        this.showToast(version === 'abridged' ? '⚡ 축약본으로 전환되었습니다' : '📚 원본으로 전환되었습니다');
+    }
+    
+    updateVersionIndicator() {
+        const indicator = document.getElementById('versionIndicator');
+        if (indicator) {
+            indicator.innerHTML = this.currentVersion === 'abridged' 
+                ? '<span style="color: #10b981;">⚡ 축약본</span>'
+                : '<span style="color: #6366f1;">📚 원본</span>';
+        }
     }
     
     init() {
@@ -25,6 +61,7 @@ class LearningPlatform {
         this.initFeedbackSystem();
         this.updateFeedbackCount();
         this.initPracticeSystem();
+        this.updateVersionIndicator();
     }
     
     bindElements() {
@@ -44,7 +81,8 @@ class LearningPlatform {
         
         // Home
         this.chapterGrid = document.getElementById('chapterGrid');
-        this.startLearning = document.getElementById('startLearning');
+        this.startLearningFull = document.getElementById('startLearningFull');
+        this.startLearningAbridged = document.getElementById('startLearningAbridged');
         
         // Chapter
         this.chapterContent = document.getElementById('chapterContent');
@@ -75,8 +113,30 @@ class LearningPlatform {
         // Theme toggle
         this.themeToggle.addEventListener('click', () => this.toggleTheme());
         
-        // Navigation
-        this.startLearning.addEventListener('click', () => this.openChapter(0));
+        // Navigation - Version selection (Home page)
+        if (this.startLearningFull) {
+            this.startLearningFull.addEventListener('click', () => {
+                this.switchVersion('full');
+                this.clickNavItem(0);
+            });
+        }
+        if (this.startLearningAbridged) {
+            this.startLearningAbridged.addEventListener('click', () => {
+                this.switchVersion('abridged');
+                this.clickNavItem(0);
+            });
+        }
+        
+        // Version switch buttons (Sidebar)
+        const switchToFull = document.getElementById('switchToFull');
+        const switchToAbridged = document.getElementById('switchToAbridged');
+        if (switchToFull) {
+            switchToFull.addEventListener('click', () => this.switchVersion('full'));
+        }
+        if (switchToAbridged) {
+            switchToAbridged.addEventListener('click', () => this.switchVersion('abridged'));
+        }
+        
         this.backToHome.addEventListener('click', () => this.showHome());
         
         this.prevChapter.addEventListener('click', () => this.navigateChapter(-1));
@@ -147,7 +207,7 @@ class LearningPlatform {
     }
     
     updateProgress() {
-        const total = CHAPTERS_DATA.length;
+        const total = this.chaptersData.length;
         const completed = this.completedChapters.length;
         const percent = Math.round((completed / total) * 100);
         
@@ -172,12 +232,13 @@ class LearningPlatform {
     renderNavMenu() {
         this.navMenu.innerHTML = '';
         
-        CHAPTERS_DATA.forEach((chapter, index) => {
+        this.chaptersData.forEach((chapter, index) => {
             const isCompleted = this.completedChapters.includes(index);
             const isActive = this.currentChapter === index;
             
             const navItem = document.createElement('div');
             navItem.className = `nav-item ${isCompleted ? 'completed' : ''} ${isActive ? 'active' : ''}`;
+            navItem.setAttribute('data-chapter', index);
             navItem.innerHTML = `
                 <span class="nav-chapter-num">${isCompleted ? '✓' : index}</span>
                 <span>${chapter.title}</span>
@@ -195,7 +256,7 @@ class LearningPlatform {
     renderChapterGrid() {
         this.chapterGrid.innerHTML = '';
         
-        CHAPTERS_DATA.forEach((chapter, index) => {
+        this.chaptersData.forEach((chapter, index) => {
             const isCompleted = this.completedChapters.includes(index);
             
             const card = document.createElement('div');
@@ -207,7 +268,7 @@ class LearningPlatform {
                 </div>
                 <p>${chapter.description}</p>
             `;
-            card.addEventListener('click', () => this.openChapter(index));
+            card.addEventListener('click', () => this.clickNavItem(index));
             
             this.chapterGrid.appendChild(card);
         });
@@ -224,10 +285,10 @@ class LearningPlatform {
     }
     
     openChapter(index) {
-        if (index < 0 || index >= CHAPTERS_DATA.length) return;
+        if (index < 0 || index >= this.chaptersData.length) return;
         
         this.currentChapter = index;
-        const chapter = CHAPTERS_DATA[index];
+        const chapter = this.chaptersData[index];
         
         // Update content
         this.chapterContent.innerHTML = chapter.content;
@@ -238,8 +299,8 @@ class LearningPlatform {
         // Update navigation buttons
         this.prevChapter.disabled = index === 0;
         this.prevChapter2.disabled = index === 0;
-        this.nextChapter.disabled = index === CHAPTERS_DATA.length - 1;
-        this.nextChapter2.disabled = index === CHAPTERS_DATA.length - 1;
+        this.nextChapter.disabled = index === this.chaptersData.length - 1;
+        this.nextChapter2.disabled = index === this.chaptersData.length - 1;
         
         // Show chapter section
         this.homeSection.style.display = 'none';
@@ -249,20 +310,31 @@ class LearningPlatform {
         // Update nav menu
         this.renderNavMenu();
         
-        // Scroll to top
-        window.scrollTo(0, 0);
+        // Scroll to chapter section top
+        this.chapterSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
     navigateChapter(direction) {
         const newIndex = this.currentChapter + direction;
-        if (newIndex >= 0 && newIndex < CHAPTERS_DATA.length) {
-            this.openChapter(newIndex);
+        if (newIndex >= 0 && newIndex < this.chaptersData.length) {
+            this.clickNavItem(newIndex);
+        }
+    }
+    
+    // 사이드바 nav-item 클릭 헬퍼
+    clickNavItem(index) {
+        const navItem = this.navMenu.querySelector(`[data-chapter="${index}"]`);
+        if (navItem) {
+            navItem.click();
+        } else {
+            this.openChapter(index);
         }
     }
     
     // ===== Search =====
     buildSearchIndex() {
-        this.searchIndex = CHAPTERS_DATA.map((chapter, index) => ({
+        this.searchIndex = this.chaptersData.map((chapter, index) => ({
             id: index,
             title: chapter.title,
             description: chapter.description,

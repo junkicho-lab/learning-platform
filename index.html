@@ -21,6 +21,17 @@
             <button class="sidebar-close" id="sidebarClose">×</button>
         </div>
         
+        <div class="version-toggle-section">
+            <div class="version-toggle-header">
+                <span class="version-toggle-label">현재 버전</span>
+                <span id="versionIndicator" class="version-indicator">📚 원본</span>
+            </div>
+            <div class="version-toggle-buttons">
+                <button class="version-switch-btn" id="switchToFull">📚 원본</button>
+                <button class="version-switch-btn" id="switchToAbridged">⚡ 축약</button>
+            </div>
+        </div>
+        
         <div class="progress-section">
             <div class="progress-label">
                 <span>학습 진도</span>
@@ -70,9 +81,26 @@
                     <h1>기억을 잇다, 교실을 읽다</h1>
                     <p class="hero-subtitle">교사를 위한 옵시디언 완전 가이드 ver 2.0</p>
                     <p class="hero-author">저자: Junki</p>
-                    <button class="btn-primary" id="startLearning">학습 시작하기</button>
-                    <a href="install-guide.html" class="btn-secondary" style="margin-left: 1rem; display: inline-block; padding: 0.75rem 1.5rem; background: #f1f5f9; color: #1e293b; text-decoration: none; border-radius: 8px; font-weight: 500;">📥 설치가이드(기본문법)</a>
-                    <a href="note-library.html" class="btn-secondary" style="margin-left: 1rem; display: inline-block; padding: 0.75rem 1.5rem; background: #d1fae5; color: #065f46; text-decoration: none; border-radius: 8px; font-weight: 500;">📂 노트자료실</a>
+                    <div class="version-selector">
+                        <p class="version-selector-label">📖 학습 버전을 선택하세요</p>
+                        <div class="version-selector-buttons">
+                            <button class="btn-primary version-btn" id="startLearningFull">
+                                <span class="version-btn-icon">📚</span>
+                                <span class="version-btn-title">원본 (상세)</span>
+                                <span class="version-btn-desc">에피소드 + Q&A 전체</span>
+                            </button>
+                            <button class="btn-primary version-btn version-btn-abridged" id="startLearningAbridged">
+                                <span class="version-btn-icon">⚡</span>
+                                <span class="version-btn-title">축약본 (핵심)</span>
+                                <span class="version-btn-desc">핵심 요약만 빠르게</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="install-guide.html" class="btn-secondary">📥 설치가이드</a>
+                        <a href="note-library.html" class="btn-secondary btn-secondary-green">📂 노트자료실</a>
+                        <a href="essay.html" class="btn-secondary btn-secondary-purple">📖 에세이</a>
+                    </div>
                 </div>
             </div>
             
@@ -108,6 +136,17 @@
         <section class="chapter-section" id="chapterSection" style="display: none;">
             <div class="chapter-header">
                 <button class="btn-back" id="backToHome">← 목차로</button>
+                <div class="tts-controls">
+                    <button class="btn-tts" id="ttsPlay" title="읽어주기">🔊 읽어주기</button>
+                    <button class="btn-tts" id="ttsPause" title="일시정지" style="display:none;">⏸️ 일시정지</button>
+                    <button class="btn-tts" id="ttsStop" title="정지" style="display:none;">⏹️ 정지</button>
+                    <select id="ttsSpeed" class="tts-speed">
+                        <option value="0.8">0.8x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.2">1.2x</option>
+                        <option value="1.5">1.5x</option>
+                    </select>
+                </div>
                 <div class="chapter-nav">
                     <button class="btn-nav" id="prevChapter" disabled>◀ 이전</button>
                     <button class="btn-nav" id="nextChapter">다음 ▶</button>
@@ -254,7 +293,9 @@
     <div class="toast" id="toast"></div>
     
     <script src="js/chapters.js"></script>
+    <script src="js/chapters_abridged.js"></script>
     <script src="js/practice.js"></script>
+    <script src="js/tts.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
