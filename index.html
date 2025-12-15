@@ -21,16 +21,6 @@
             <button class="sidebar-close" id="sidebarClose">×</button>
         </div>
         
-        <div class="version-toggle-section">
-            <div class="version-toggle-header">
-                <span class="version-toggle-label">현재 버전</span>
-                <span id="versionIndicator" class="version-indicator">📚 원본</span>
-            </div>
-            <div class="version-toggle-buttons">
-                <button class="version-switch-btn" id="switchToFull">📚 원본</button>
-                <button class="version-switch-btn" id="switchToAbridged">⚡ 축약</button>
-            </div>
-        </div>
         
         <div class="progress-section">
             <div class="progress-label">
@@ -81,21 +71,9 @@
                     <h1>기억을 잇다, 교실을 읽다</h1>
                     <p class="hero-subtitle">교사를 위한 옵시디언 완전 가이드 ver 2.0</p>
                     <p class="hero-author">저자: Junki</p>
-                    <div class="version-selector">
-                        <p class="version-selector-label">📖 학습 버전을 선택하세요</p>
-                        <div class="version-selector-buttons">
-                            <button class="btn-primary version-btn" id="startLearningFull">
-                                <span class="version-btn-icon">📚</span>
-                                <span class="version-btn-title">원본 (상세)</span>
-                                <span class="version-btn-desc">에피소드 + Q&A 전체</span>
-                            </button>
-                            <button class="btn-primary version-btn version-btn-abridged" id="startLearningAbridged">
-                                <span class="version-btn-icon">⚡</span>
-                                <span class="version-btn-title">축약본 (핵심)</span>
-                                <span class="version-btn-desc">핵심 요약만 빠르게</span>
-                            </button>
-                        </div>
-                    </div>
+                    <button class="btn-primary" id="startLearning" style="margin-top: 20px; padding: 15px 40px; font-size: 18px;">
+                        📖 학습 시작하기
+                    </button>
                     <div class="hero-buttons">
                         <a href="install-guide.html" class="btn-secondary">📥 설치가이드</a>
                         <a href="note-library.html" class="btn-secondary btn-secondary-green">📂 노트자료실</a>
@@ -282,7 +260,6 @@
     <!-- 토스트 알림 -->
     <div class="toast" id="toast"></div>
     
-    <script src="js/chapters.js"></script>
     <script src="js/chapters_abridged.js"></script>
     <script src="js/practice.js"></script>
     <script src="js/tts.js"></script>

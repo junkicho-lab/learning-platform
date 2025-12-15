@@ -1,0 +1,95 @@
+
+/* EPUB 스타일 */
+body {
+    font-family: "Noto Sans KR", sans-serif;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #4A6C6F;
+    padding-bottom: 10px;
+    margin-top: 2em;
+}
+
+h2 {
+    font-size: 1.4em;
+    color: #4A6C6F;
+    margin-top: 1.5em;
+}
+
+h3 {
+    font-size: 1.2em;
+    color: #4A6C6F;
+}
+
+blockquote {
+    background-color: #F5F3EF;
+    padding: 15px 20px;
+    border-left: 4px solid #4A6C6F;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+code {
+    background-color: #F0E5DE;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+pre {
+    background-color: #3A3A3A;
+    color: #FFFFFF;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+pre code {
+    background-color: transparent;
+    color: #FFFFFF;
+}
+
+pre code * {
+    color: #FFFFFF !important;
+    background-color: transparent !important;
+}
+
+pre a, pre code a {
+    color: #FFFFFF !important;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #E0E0E0;
+    text-align: left;
+}
+
+th {
+    background-color: #EBEBEB;
+    font-weight: bold;
+}
+
+/* 특수 박스 */
+.tip-box {
+    background-color: #F0E5DE;
+    padding: 15px;
+    border-left: 5px solid #C4A16E;
+    margin: 20px 0;
+}
+
+.journey-box {
+    background-color: #E8F4E8;
+    padding: 15px;
+    border-left: 5px solid #4CAF50;
+    margin: 20px 0;
+}

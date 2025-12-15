@@ -1,0 +1,32 @@
+---
+title: "교사를 위한 옵시디언"
+subtitle: "꼬꼬무 기록법으로 시작하는 교직 생활 관리"
+author: "저자명"
+date: "2025-12-14"
+lang: "ko-KR"
+toc: true
+toc-title: "목차"
+toc-depth: 2
+numbersections: false
+documentclass: book
+papersize: a5
+fontsize: 11pt
+linestretch: 1.5
+geometry:
+  - top=25mm
+  - bottom=25mm
+  - left=20mm
+  - right=20mm
+mainfont: "Noto Sans KR"
+sansfont: "Noto Sans KR"
+monofont: "D2Coding"
+header-includes:
+  - |
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[RE]{\leftmark}
+    \fancyhead[LO]{교사를 위한 옵시디언}
+    \fancyfoot[C]{}
+    \renewcommand{\headrulewidth}{0.4pt}
+---

@@ -5,7 +5,7 @@
 class LearningPlatform {
     constructor() {
         this.currentChapter = -1;
-        this.currentVersion = this.loadVersion(); // 'full' or 'abridged'
+        this.currentVersion = 'abridged';
         this.chaptersData = this.getChaptersData();
         this.completedChapters = this.loadProgress();
         this.searchIndex = [];
@@ -17,37 +17,8 @@ class LearningPlatform {
     }
     
     // ===== Version Management =====
-    loadVersion() {
-        return localStorage.getItem('learningVersion') || 'full';
-    }
-    
-    saveVersion(version) {
-        localStorage.setItem('learningVersion', version);
-        this.currentVersion = version;
-    }
-    
     getChaptersData() {
-        return this.currentVersion === 'abridged' ? CHAPTERS_DATA_ABRIDGED : CHAPTERS_DATA;
-    }
-    
-    switchVersion(version) {
-        this.saveVersion(version);
-        this.chaptersData = this.getChaptersData();
-        this.renderNavMenu();
-        this.renderChapterGrid();
-        this.updateProgress();
-        this.buildSearchIndex();
-        this.updateVersionIndicator();
-        this.showToast(version === 'abridged' ? '⚡ 축약본으로 전환되었습니다' : '📚 원본으로 전환되었습니다');
-    }
-    
-    updateVersionIndicator() {
-        const indicator = document.getElementById('versionIndicator');
-        if (indicator) {
-            indicator.innerHTML = this.currentVersion === 'abridged' 
-                ? '<span style="color: #10b981;">⚡ 축약본</span>'
-                : '<span style="color: #6366f1;">📚 원본</span>';
-        }
+        return CHAPTERS_DATA_ABRIDGED;
     }
     
     init() {
@@ -61,7 +32,6 @@ class LearningPlatform {
         this.initFeedbackSystem();
         this.updateFeedbackCount();
         this.initPracticeSystem();
-        this.updateVersionIndicator();
     }
     
     bindElements() {
@@ -81,8 +51,7 @@ class LearningPlatform {
         
         // Home
         this.chapterGrid = document.getElementById('chapterGrid');
-        this.startLearningFull = document.getElementById('startLearningFull');
-        this.startLearningAbridged = document.getElementById('startLearningAbridged');
+        this.startLearning = document.getElementById('startLearning');
         
         // Chapter
         this.chapterContent = document.getElementById('chapterContent');
@@ -113,28 +82,11 @@ class LearningPlatform {
         // Theme toggle
         this.themeToggle.addEventListener('click', () => this.toggleTheme());
         
-        // Navigation - Version selection (Home page)
-        if (this.startLearningFull) {
-            this.startLearningFull.addEventListener('click', () => {
-                this.switchVersion('full');
+        // Navigation - Start learning button
+        if (this.startLearning) {
+            this.startLearning.addEventListener('click', () => {
                 this.clickNavItem(0);
             });
-        }
-        if (this.startLearningAbridged) {
-            this.startLearningAbridged.addEventListener('click', () => {
-                this.switchVersion('abridged');
-                this.clickNavItem(0);
-            });
-        }
-        
-        // Version switch buttons (Sidebar)
-        const switchToFull = document.getElementById('switchToFull');
-        const switchToAbridged = document.getElementById('switchToAbridged');
-        if (switchToFull) {
-            switchToFull.addEventListener('click', () => this.switchVersion('full'));
-        }
-        if (switchToAbridged) {
-            switchToAbridged.addEventListener('click', () => this.switchVersion('abridged'));
         }
         
         this.backToHome.addEventListener('click', () => this.showHome());
@@ -498,8 +450,8 @@ class LearningPlatform {
         this.feedbackModal.classList.remove('active');
         
         // Set current chapter
-        if (this.currentChapter >= 0 && CHAPTERS_DATA[this.currentChapter]) {
-            this.currentChapterDisplay.value = CHAPTERS_DATA[this.currentChapter].title;
+        if (this.currentChapter >= 0 && CHAPTERS_DATA_ABRIDGED[this.currentChapter]) {
+            this.currentChapterDisplay.value = CHAPTERS_DATA_ABRIDGED[this.currentChapter].title;
         } else {
             this.currentChapterDisplay.value = '홈 화면';
         }
@@ -587,7 +539,7 @@ class LearningPlatform {
     
     populateChapterFilter() {
         this.filterChapter.innerHTML = '<option value="all">모든 챕터</option>';
-        CHAPTERS_DATA.forEach((chapter, index) => {
+        CHAPTERS_DATA_ABRIDGED.forEach((chapter, index) => {
             const option = document.createElement('option');
             option.value = index;
             option.textContent = chapter.title;

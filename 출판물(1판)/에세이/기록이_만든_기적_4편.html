@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-KR" xml:lang="ko-KR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Junki" />
+  <meta name="dcterms.date" content="2024-01-01" />
+  <title>기록이 만든 기적 4편</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">기록이 만든 기적 4편</h1>
+<p class="subtitle">매년 처음부터 시작하지 않는 법</p>
+<p class="author">Junki</p>
+<p class="date">2024</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#기록이-만든-기적-4편" id="toc-기록이-만든-기적-4편">기록이
+만든 기적 4편</a>
+<ul>
+<li><a href="#매년-처음부터-시작하지-않는-법"
+id="toc-매년-처음부터-시작하지-않는-법">매년 처음부터 시작하지 않는
+법</a></li>
+<li><a href="#목차" id="toc-목차">목차</a></li>
+</ul></li>
+<li><a href="#프롤로그-3년-차의-깨달음"
+id="toc-프롤로그-3년-차의-깨달음">프롤로그: 3년 차의 깨달음</a></li>
+<li><a href="#부.-피타고라스-정리-3년간의-진화"
+id="toc-부.-피타고라스-정리-3년간의-진화">13부. 피타고라스 정리, 3년간의
+진화</a>
+<ul>
+<li><a href="#첫-해의-참패" id="toc-첫-해의-참패">첫 해의 참패</a></li>
+<li><a href="#기록이-바꾼-두-번째-해"
+id="toc-기록이-바꾼-두-번째-해">기록이 바꾼 두 번째 해</a></li>
+<li><a href="#년-차-완성된-수업" id="toc-년-차-완성된-수업">3년 차,
+완성된 수업</a></li>
+</ul></li>
+<li><a href="#부.-체육대회의-아이스크림"
+id="toc-부.-체육대회의-아이스크림">14부. 체육대회의 아이스크림</a>
+<ul>
+<li><a href="#매년-반복되는-실수" id="toc-매년-반복되는-실수">매년
+반복되는 실수</a></li>
+<li><a href="#내년의-나에게-편지" id="toc-내년의-나에게-편지">“내년의
+나에게” 편지</a></li>
+<li><a href="#드디어-녹지-않은-아이스크림"
+id="toc-드디어-녹지-않은-아이스크림">드디어 녹지 않은
+아이스크림</a></li>
+</ul></li>
+<li><a href="#부.-학부모-상담-주간의-비밀-무기"
+id="toc-부.-학부모-상담-주간의-비밀-무기">15부. 학부모 상담 주간의 비밀
+무기</a>
+<ul>
+<li><a href="#명-상담-30시간-준비" id="toc-명-상담-30시간-준비">30명
+상담, 30시간 준비?</a></li>
+<li><a href="#년-기록이-만든-5분-준비"
+id="toc-년-기록이-만든-5분-준비">1년 기록이 만든 5분 준비</a></li>
+<li><a href="#학부모가-놀란-순간" id="toc-학부모가-놀란-순간">학부모가
+놀란 순간</a></li>
+</ul></li>
+<li><a href="#부.-수학여행-전날의-기적"
+id="toc-부.-수학여행-전날의-기적">16부. 수학여행 전날의 기적</a>
+<ul>
+<li><a href="#전날-밤의-악몽" id="toc-전날-밤의-악몽">전날 밤의
+악몽</a></li>
+<li><a href="#년-치-체크리스트" id="toc-년-치-체크리스트">3년 치
+체크리스트</a></li>
+<li><a href="#처음으로-여유로운-아침"
+id="toc-처음으로-여유로운-아침">처음으로 여유로운 아침</a></li>
+</ul></li>
+<li><a href="#에필로그-경력이-쌓이는-교사"
+id="toc-에필로그-경력이-쌓이는-교사">에필로그: 경력이 쌓이는 교사</a>
+<ul>
+<li><a href="#나만의-백과사전-구축하기"
+id="toc-나만의-백과사전-구축하기">나만의 백과사전 구축하기</a></li>
+<li><a href="#마지막-한-마디" id="toc-마지막-한-마디">마지막 한
+마디</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="기록이-만든-기적-4편">기록이 만든 기적 4편</h1>
+<h2 id="매년-처음부터-시작하지-않는-법">매년 처음부터 시작하지 않는
+법</h2>
+<p><strong>Junki 지음</strong></p>
+<p><em>기억을 잇다, 교실을 읽다</em> <em>교사를 위한 옵시디언 완전
+가이드 시리즈</em></p>
+<h2 id="목차">목차</h2>
+<ul>
+<li><p><strong>프롤로그: 3년 차의 깨달음</strong></p></li>
+<li><p><strong>13부. 피타고라스 정리, 3년간의 진화</strong></p>
+<ul>
+<li>첫 해의 참패</li>
+<li>기록이 바꾼 두 번째 해</li>
+<li>3년 차, 완성된 수업</li>
+</ul></li>
+<li><p><strong>14부. 체육대회의 아이스크림</strong></p>
+<ul>
+<li>매년 반복되는 실수</li>
+<li>“내년의 나에게” 편지</li>
+<li>드디어 녹지 않은 아이스크림</li>
+</ul></li>
+<li><p><strong>15부. 학부모 상담 주간의 비밀 무기</strong></p>
+<ul>
+<li>30명 상담, 30시간 준비?</li>
+<li>1년 기록이 만든 5분 준비</li>
+<li>학부모가 놀란 순간</li>
+</ul></li>
+<li><p><strong>16부. 수학여행 전날의 기적</strong></p>
+<ul>
+<li>전날 밤의 악몽</li>
+<li>3년 치 체크리스트</li>
+<li>처음으로 여유로운 아침</li>
+</ul></li>
+<li><p><strong>에필로그: 경력이 쌓이는 교사</strong></p></li>
+</ul>
+<hr />
+<blockquote>
+<p><em>“기록하지 않은 교사는 매년 1년 차다.<em> </em>기록하는 교사는
+매년 경력이 쌓인다.”</em></p>
+</blockquote>
+<hr />
+<h1 id="프롤로그-3년-차의-깨달음">프롤로그: 3년 차의 깨달음</h1>
+<p>교직 1년 차, 나는 모든 것이 처음이었다.</p>
+<p>피타고라스 정리 수업. 체육대회. 학부모 상담. 수학여행.</p>
+<p>2년 차, 나는 또 모든 것이 처음이었다.</p>
+<p>“작년에 뭘 했더라?” 기억이 안 났다. 결국 처음부터 다시 준비했다.</p>
+<p>3년 차, 나는 깨달았다.</p>
+<p><strong>기록하지 않으면, 경력은 쌓이지 않는다.</strong></p>
+<p>10년 차 교사도 기록이 없으면 매년 1년 차처럼 시작한다. 3년 차 교사도
+기록이 있으면 3년 치 경험 위에서 시작한다.</p>
+<p>이번 이야기는 내가 어떻게 ’매년 처음부터 시작하는 교사’에서 ’매년
+쌓아가는 교사’가 되었는지에 관한 것이다.</p>
+<h1 id="부.-피타고라스-정리-3년간의-진화">13부. 피타고라스 정리, 3년간의
+진화</h1>
+<h2 id="첫-해의-참패">첫 해의 참패</h2>
+<p>2024년 5월, 중2 수학. 피타고라스 정리 단원.</p>
+<p>나는 열심히 PPT를 만들었다. 공식 설명, 예제 풀이, 연습 문제. 완벽한
+강의식 수업.</p>
+<p>결과는 참담했다.</p>
+<blockquote>
+<p>2024.05.12 - 피타고라스 정리 수업 - 방식: PPT 강의 - 결과: ⭐⭐ (5점
+만점) - 문제점: 10분 만에 애들 졸기 시작. “선생님, 이거 왜 배워요?”
+질문에 답 못함. - 반성: 공식만 가르치니까 재미없었음</p>
+</blockquote>
+<p>그때는 그냥 “수업 망했다”로 끝났다. 기록은 했지만, 다음 해에 어떻게
+바꿀지는 생각 못 했다.</p>
+<h2 id="기록이-바꾼-두-번째-해">기록이 바꾼 두 번째 해</h2>
+<p>2025년 5월, 다시 피타고라스 정리.</p>
+<p>작년 기록을 열었다. “PPT 강의 → 10분 만에 졸음 → ⭐⭐”</p>
+<p><strong>같은 방식은 안 된다.</strong> 그래서 바꿨다.</p>
+<p>유튜브에서 ’피타고라스 정리 활동’을 검색했다. ’보물찾기 활동’이라는
+게 있었다. 교실 곳곳에 좌표를 숨기고, 피타고라스 정리로 거리를 계산해서
+보물을 찾는 활동.</p>
+<blockquote>
+<p>2025.05.14 - 피타고라스 정리 수업 - 방식: 보물찾기 활동 - 결과:
+⭐⭐⭐⭐⭐ - 좋았던 점: 애들 집중 잘함. “선생님, 다음 시간에도 이거
+해요!” 반응. - 아쉬운 점: 줄자가 부족해서 모둠별로 돌려씀. 시간 지연. -
+다음에: 줄자 모둠 수만큼 준비할 것.</p>
+</blockquote>
+<p>이번엔 달랐다. <strong>“다음에”</strong> 섹션을 추가했다.</p>
+<h2 id="년-차-완성된-수업">3년 차, 완성된 수업</h2>
+<p>2026년 5월, 세 번째 피타고라스 정리.</p>
+<p>작년 기록을 열었다.</p>
+<ul>
+<li>2024년: PPT 강의 → ⭐⭐ (실패)</li>
+<li>2025년: 보물찾기 → ⭐⭐⭐⭐⭐ (성공, 단 줄자 부족)</li>
+</ul>
+<p>올해는 줄자를 미리 준비했다. 그리고 한 가지를 더 추가했다. 디지털
+지도 앱으로 실제 학교 운동장 좌표를 활용하는 것.</p>
+<blockquote>
+<p>2026.05.13 - 피타고라스 정리 수업 - 방식: 보물찾기 + 디지털 지도 -
+결과: ⭐⭐⭐⭐⭐+ - 좋았던 점: 실제 운동장 좌표 사용하니 “와, 진짜
+수학이 쓰이네!” 반응. - 학생 피드백: “수학 시간 중 제일 재밌었어요.”</p>
+</blockquote>
+<p>3년간의 기록이 쌓였다.</p>
+<pre><code>2024년: 강의식 → ⭐⭐ (실패)
+    ↓
+2025년: 보물찾기 → ⭐⭐⭐⭐⭐ (성공)
+    ↓
+2026년: 보물찾기 + 디지털 → ⭐⭐⭐⭐⭐+ (완성)</code></pre>
+<p><strong>기록이 없었다면?</strong></p>
+<p>2026년에도 “피타고라스 정리 어떻게 가르치지?” 하며 처음부터 고민했을
+것이다. 기록이 있었기에, 2년간의 시행착오 위에서 시작할 수 있었다.</p>
+<h1 id="부.-체육대회의-아이스크림">14부. 체육대회의 아이스크림</h1>
+<h2 id="매년-반복되는-실수">매년 반복되는 실수</h2>
+<p>체육대회. 교사에게는 전쟁 같은 날이다.</p>
+<p>2024년 체육대회. 나는 반 간식으로 아이스크림을 준비했다. 아이들이
+좋아할 거라고 생각했다.</p>
+<p>문제는 타이밍이었다.</p>
+<p>오전 10시에 아이스크림을 받았다. 간식 시간은 오후 1시. 3시간 동안
+아이스크림은 녹아내렸다.</p>
+<p>“선생님, 이거 아이스크림이에요? 우유예요?”</p>
+<p>아이들의 실망한 표정. 나는 속으로 다짐했다. “내년엔 절대 이러지
+말아야지.”</p>
+<p>그런데 2025년 체육대회.</p>
+<p>또 아이스크림을 준비했다. 또 오전에 받았다. 또 녹았다.</p>
+<p>“선생님, 작년이랑 똑같아요!”</p>
+<p>그제야 깨달았다. <strong>다짐만으로는 안 된다. 기록해야
+한다.</strong></p>
+<h2 id="내년의-나에게-편지">“내년의 나에게” 편지</h2>
+<p>2025년 체육대회가 끝난 그날 저녁, 나는 옵시디언을 열었다.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 체육대회 매뉴얼</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📅 2025년 기록</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>**잘된 점:**</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>반티 사이즈 미리 조사 → 교환 소동 없음</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>응원 도구 여유분 준비 → 부족함 없음</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>**아쉬운 점:**</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>아이스크림 오전 10시 수령 → 오후 1시에 녹음 (2년 연속!)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📮 내년의 나에게</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>아이스크림은 **간식 시간 30분 전**에 수령할 것!</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>아니면 아이스크림 말고 다른 간식으로 바꿀 것</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>선크림 챙겨라 (올해도 얼굴 탔다)</span></code></pre></div>
+<p><strong>“내년의 나에게”</strong> 섹션. 이게 핵심이었다.</p>
+<p>행사 당일에 느낀 깨달음은 일주일만 지나면 잊혀진다. 그날 바로 적어야
+한다.</p>
+<h2 id="드디어-녹지-않은-아이스크림">드디어 녹지 않은 아이스크림</h2>
+<p>2026년 체육대회 일주일 전.</p>
+<p>나는 옵시디언에서 [[체육대회]] 노트를 열었다.</p>
+<p>“내년의 나에게” 섹션이 눈에 들어왔다.</p>
+<blockquote>
+<ol type="1">
+<li>아이스크림은 <strong>간식 시간 30분 전</strong>에 수령할 것!</li>
+</ol>
+</blockquote>
+<p>“아, 맞다!”</p>
+<p>올해는 달랐다. 아이스크림 업체에 전화해서 오후 12시 30분 배송을
+요청했다.</p>
+<p>체육대회 당일. 오후 12시 30분에 아이스크림이 도착했다. 오후 1시에
+아이들에게 나눠줬다.</p>
+<p>“선생님, 이거 진짜 아이스크림이에요! 안 녹았어요!”</p>
+<p>3년 만에 처음으로 제대로 된 아이스크림을 먹인 순간이었다.</p>
+<p><strong>기록이 없었다면?</strong></p>
+<p>2026년에도 “아이스크림 몇 시에 받지?” 하며 또 오전에 받았을 것이다.
+기록이 있었기에, 2년간의 실수를 반복하지 않았다.</p>
+<h1 id="부.-학부모-상담-주간의-비밀-무기">15부. 학부모 상담 주간의 비밀
+무기</h1>
+<h2 id="명-상담-30시간-준비">30명 상담, 30시간 준비?</h2>
+<p>4월, 학부모 상담 주간.</p>
+<p>30명의 학부모를 만나야 한다. 각 15분씩. 총 7시간 30분의 상담.</p>
+<p>문제는 준비 시간이었다.</p>
+<p>2024년, 나는 상담 전날 밤을 새웠다.</p>
+<p>“1번 강도현… 뭐 말하지? 음… 교우관계가 좀 그렇고…” “5번 김민준…
+화장실 자주 가는 애였나? 아니 그건 다른 애였나…”</p>
+<p>30명의 학생에 대해 기억을 더듬으며 메모를 작성했다. 한 명당 30분. 총
+15시간.</p>
+<p>상담 당일, 나는 좀비 같은 얼굴로 학부모를 맞이했다.</p>
+<h2 id="년-기록이-만든-5분-준비">1년 기록이 만든 5분 준비</h2>
+<p>2026년 4월, 다시 학부모 상담 주간.</p>
+<p>이번엔 달랐다. 1년간 기록이 쌓여 있었다.</p>
+<p>상담 전날, 옵시디언을 열었다.</p>
+<p>검색창에 ‘강도현’. 1초.</p>
+<pre><code>3월 14일: 점심시간 류승민과 다툼
+3월 20일: 개별 면담, 가정환경 파악
+4월 15일: 체육 시간 안정적
+5월 15일: 스승의 날 편지 &quot;성격 고치고 싶어요&quot;</code></pre>
+<p>1년간의 여정이 한눈에 보였다.</p>
+<p>검색창에 ‘김민준’. 1초.</p>
+<pre><code>3월 7일: 화장실빌런 시작
+3월 21일: 영어 시간 회피 패턴 발견
+4월 5일: 개별 면담, 듣기 불안 파악
+5월 9일: &quot;오늘 안 무서웠어요!&quot; 첫 성공</code></pre>
+<p>한 명당 5분. 30명 × 5분 = 2시간 30분.</p>
+<p><strong>15시간이 2시간 30분으로 줄었다.</strong></p>
+<h2 id="학부모가-놀란-순간">학부모가 놀란 순간</h2>
+<p>상담 당일.</p>
+<p>강도현 어머니가 오셨다.</p>
+<p>“선생님, 도현이 학교에서 어때요?”</p>
+<p>나는 옵시디언 노트를 보며 말했다.</p>
+<p>“어머니, 3월 초에는 교우관계에서 어려움이 있었어요. 3월 14일에 친구와
+다툼이 있었고, 3월 20일에 개별 면담을 했습니다. 그때 도현이가 ’집에서
+아빠가 소리 지르면 몸이 굳어요’라고 말했어요.”</p>
+<p>어머니 표정이 굳었다.</p>
+<p>“그 후로 접근 방식을 바꿨어요. ’왜 싸웠어?’가 아니라 ’그 순간
+공격받는 느낌이 들었어?’라고 물었더니, 도현이가 마음을 열었어요. 5월
+15일 스승의 날에는 ’성격 고치고 싶어요’라는 편지를 줬습니다.”</p>
+<p>어머니가 눈물을 글썽였다.</p>
+<p>“선생님… 이렇게까지 봐주셨군요. 저도 몰랐던 걸 선생님이
+아시네요.”</p>
+<p><strong>기록이 없었다면?</strong></p>
+<p>“도현이 요즘 괜찮아요. 좀 그랬는데 나아졌어요.” 이 정도가 전부였을
+것이다. 기록이 있었기에, 1년간의 성장 스토리를 전할 수 있었다.</p>
+<h1 id="부.-수학여행-전날의-기적">16부. 수학여행 전날의 기적</h1>
+<h2 id="전날-밤의-악몽">전날 밤의 악몽</h2>
+<p>수학여행. 교사에게는 1년 중 가장 긴장되는 행사다.</p>
+<p>2024년 수학여행 전날 밤.</p>
+<p>나는 잠을 못 잤다.</p>
+<p>“학생 명단 출력했나? 비상 연락망은? 멀미약은? 우산은? 간식은? 버스
+좌석 배치는?”</p>
+<p>머릿속이 복잡했다. 뭔가 빠뜨린 것 같은 불안감.</p>
+<p>결국 새벽 3시까지 체크리스트를 만들었다. 그리고 다음 날 아침, 피곤한
+몸으로 수학여행을 떠났다.</p>
+<p>돌아와서 깨달았다. 멀미약을 안 챙겼다. 버스에서 3명이 토했다.</p>
+<h2 id="년-치-체크리스트">3년 치 체크리스트</h2>
+<p>2025년 수학여행이 끝난 후, 나는 옵시디언에 기록했다.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 수학여행 매뉴얼</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## 📋 체크리스트</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### D-7 (일주일 전)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 학생 명단 최종 확인</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 비상 연락망 출력</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 알레르기/지병 학생 파악</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 버스 좌석 배치 (멀미 학생 앞자리)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### D-1 (전날)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 멀미약 구입 (학생 수 × 2배)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 비상금 준비</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 우산 여유분 5개</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 간식 주문 확인</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### D-Day (당일 아침)</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 출석 체크</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 비상 연락망 재확인</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 멀미약 배포 (버스 타기 30분 전)</span></code></pre></div>
+<p>2026년 수학여행 전날.</p>
+<p>나는 옵시디언에서 [[수학여행]] 노트를 열었다.</p>
+<p>체크리스트가 있었다. 하나씩 체크했다.</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />학생 명단 최종
+확인</label></li>
+<li><label><input type="checkbox" checked="" />비상 연락망
+출력</label></li>
+<li><label><input type="checkbox" checked="" />멀미약 구입 (30명 × 2 =
+60개)</label></li>
+<li><label><input type="checkbox" checked="" />버스 좌석 배치 (멀미 학생
+앞자리)</label></li>
+</ul>
+<h2 id="처음으로-여유로운-아침">처음으로 여유로운 아침</h2>
+<p>2026년 수학여행 당일 아침.</p>
+<p>나는 7시에 일어났다. 충분히 잤다.</p>
+<p>체크리스트는 이미 전날 다 완료했다. 오늘 아침에 할 일은 출석 체크와
+멀미약 배포뿐.</p>
+<p>버스에서 아이들에게 멀미약을 나눠줬다. 미리 파악한 멀미 학생 5명은
+앞자리에 앉혔다.</p>
+<p>수학여행 내내 아무도 토하지 않았다.</p>
+<p>돌아오는 버스에서, 옆 반 담임 선생님이 물었다.</p>
+<p>“선생님, 어떻게 이렇게 준비를 잘 하세요? 저는 매년 뭔가
+빠뜨려요.”</p>
+<p>나는 웃으며 대답했다.</p>
+<p>“3년 치 실수가 쌓여 있거든요. 그 실수들이 체크리스트가 됐어요.”</p>
+<p><strong>기록이 없었다면?</strong></p>
+<p>2026년에도 전날 밤 새벽까지 체크리스트를 만들었을 것이다. 그리고 또
+뭔가를 빠뜨렸을 것이다. 기록이 있었기에, 3년간의 실수가 완벽한
+체크리스트가 되었다.</p>
+<h1 id="에필로그-경력이-쌓이는-교사">에필로그: 경력이 쌓이는 교사</h1>
+<p>교직 3년.</p>
+<p>나는 깨달았다.</p>
+<p><strong>경력은 시간이 아니라 기록으로 쌓인다.</strong></p>
+<p>10년 차 교사도 기록이 없으면: - 매년 “피타고라스 정리 어떻게
+가르치지?” 고민 - 매년 체육대회 아이스크림 녹임 - 매년 학부모 상담 전날
+밤샘 - 매년 수학여행 전날 불안</p>
+<p>3년 차 교사도 기록이 있으면: - “피타고라스 정리는 보물찾기가 최고”
+확신 - 체육대회 간식은 30분 전 수령 - 학부모 상담 준비 2시간 30분 -
+수학여행 체크리스트 완비</p>
+<hr />
+<h2 id="나만의-백과사전-구축하기">나만의 백과사전 구축하기</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">영역</th>
+<th style="text-align: left;">노트 예시</th>
+<th style="text-align: left;">쌓이는 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>수업</strong></td>
+<td style="text-align: left;">[[피타고라스 정리]], [[이차방정식]]</td>
+<td style="text-align: left;">연도별 수업 방식, 성공/실패 기록</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>행사</strong></td>
+<td style="text-align: left;">[[체육대회]], [[수학여행]]</td>
+<td style="text-align: left;">체크리스트, “내년의 나에게”</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>상담</strong></td>
+<td style="text-align: left;">[[학부모 상담]], [[진로 상담]]</td>
+<td style="text-align: left;">상담 기법, 성공 사례</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>업무</strong></td>
+<td style="text-align: left;">[[가정통신문]], [[기안문]]</td>
+<td style="text-align: left;">상용구, 템플릿</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="마지막-한-마디">마지막 한 마디</h2>
+<blockquote>
+<p><em>“오늘의 실수를 기록하면, 내년의 성공이 된다.”</em></p>
+</blockquote>
+<p>피타고라스 정리 수업이 망했다면, 기록하세요. 체육대회 아이스크림이
+녹았다면, 기록하세요. 수학여행에서 뭔가 빠뜨렸다면, 기록하세요.</p>
+<p>그 기록들이 모이면, 당신만의 <strong>교사 백과사전</strong>이
+됩니다.</p>
+<p><strong>기록하지 않은 교사는 매년 1년 차입니다.</strong>
+<strong>기록하는 교사는 매년 경력이 쌓입니다.</strong></p>
+<p>오늘, 당신의 실수를 기록하세요. 그것이 내년의 당신을 구할
+것입니다.</p>
+<hr />
+<p><em>이 에세이에 등장하는 인물, 사례, 장소, 시간 등은 모두 교육적
+이해를 돕기 위해 구성된 가상의 내용입니다. 실제 인물이나 사건과는
+무관합니다.</em></p>
+<hr />
+<p><strong>기록이 만든 기적 4편</strong></p>
+<p><em>매년 처음부터 시작하지 않는 법</em></p>
+<p><strong>저자:</strong> Junki</p>
+<p><strong>시리즈:</strong> 기억을 잇다, 교실을 읽다 - 교사를 위한
+옵시디언 완전 가이드</p>
+<p>© 2024 Junki. All rights reserved.</p>
+<p>이 책의 내용을 무단으로 복제하거나 전재할 수 없습니다. 교육 목적의
+인용은 출처를 밝히면 가능합니다.</p>
+</body>
+</html>
